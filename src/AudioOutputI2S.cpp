@@ -46,9 +46,10 @@ AudioOutputI2S::AudioOutputI2S(int port, int output_mode, int dma_buf_count, int
   bps = 16;
   channels = 2;
   hertz = 44100;
-  bclkPin = 26;
+  bclkPin = 5;
   wclkPin = 25;
-  doutPin = 22;
+  doutPin = 26;
+  dinPin = 35;
   SetGain(1.0);
 }
 
@@ -92,7 +93,7 @@ bool AudioOutputI2S::SetPinout()
         .bck_io_num = bclkPin,
         .ws_io_num = wclkPin,
         .data_out_num = doutPin,
-        .data_in_num = I2S_PIN_NO_CHANGE};
+        .data_in_num = dinPin};
     i2s_set_pin((i2s_port_t)portNo, &pins);
     return true;
   #else

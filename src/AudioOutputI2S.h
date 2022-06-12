@@ -68,6 +68,7 @@ class AudioOutputI2S : public AudioOutput
     uint8_t bclkPin;
     uint8_t wclkPin;
     uint8_t doutPin;
+    uint8_t dinPin;
 
 #if defined(ARDUINO_ARCH_RP2040)
     I2S i2s;
